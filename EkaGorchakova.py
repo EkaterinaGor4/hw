@@ -34,6 +34,21 @@ class Student:
         else:
             print(f"{self.name} учится хуже, чем {other.sum_}")
 
+    def __lt__(self, other):
+        if mid_grade(self) >= mid_grade(other):
+            return
+        return mid_grade(self) < mid_grade(other)
+
+    def __gt__(self, other):
+        if mid_grade(self) <= mid_grade(other):
+            return
+        return mid_grade(self) > mid_grade(other)
+
+    def __eq__(self, other):
+        if mid_grade(self) != mid_grade(other):
+            return
+        return mid_grade(self) == mid_grade(other)
+
     def students_rate(students_list, course_name):
         some_list = []
         summ = 0
@@ -74,6 +89,21 @@ class Lecturer(Mentor):
         else:
             self.sum_=self.sum_/count
         return self.sum_
+
+    def __lt__(self, other):
+        if mid_grade(self) >= mid_grade(other):
+            return
+        return mid_grade(self) < mid_grade(other)
+
+    def __gt__(self, other):
+        if mid_grade(self) <= mid_grade(other):
+            return
+        return mid_grade(self) > mid_grade(other)
+
+    def __eq__(self, other):
+        if mid_grade(self) != mid_grade(other):
+            return
+        return mid_grade(self) == mid_grade(other)
 
     def stud_eq(self, other):
         if self.sum_ > other.sum_:
@@ -120,4 +150,4 @@ any_reviewer.rate_hw(student2, 'Python', 7)
 any_reviewer.rate_hw(student2, 'Git', 10)
 any_reviewer.rate_hw(student2, 'Git', 8)
 
-student1.stud_eq(student2)
+print(student1.__eq__(student2))
